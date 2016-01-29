@@ -1,5 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
+# Modified by Christian Diener 
+# Changes distributed under the MIT License.
 FROM debian:jessie
 
 MAINTAINER Jupyter Project <jupyter@googlegroups.com>
