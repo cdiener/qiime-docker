@@ -34,8 +34,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
 # Install Tini
-RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.6.0/tini && \
-    echo "d5ed732199c36a1189320e6c4859f0169e950692f451c03e7854243b95f4234b *tini" | sha256sum -c - && \
+RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
     mv tini /usr/local/bin/tini && \
     chmod +x /usr/local/bin/tini
 
