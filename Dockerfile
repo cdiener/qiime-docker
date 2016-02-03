@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libxrender1 \
     && apt-get clean
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen && fc-cache -s
+    locale-gen
 
 # Install Tini
 RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
@@ -78,10 +78,13 @@ RUN conda install --yes \
     matplotlib=1.4.3 \
     pandas \
     scipy \
-    && conda clean -yt \
-    && echo "backend: agg" > /home/jovyan/.config/matplotlib/matplotlibrc
+    && conda clean -yt
 
 RUN pip install qiime
+
+RUN mkdir -p $HOME/.config/matplotlib \
+    && echo "backend: agg" > /home/jovyan/.config/matplotlib/matplotlibrc \
+    && fc-cache -fv
 
 USER root
 
