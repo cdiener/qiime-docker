@@ -78,7 +78,8 @@ RUN conda install --yes \
     matplotlib=1.4.3 \
     pandas \
     scipy \
-    && conda clean -yt
+    && conda clean -yt \
+    && echo "backend: agg" > /home/jovyan/.config/matplotlib/matplotlibrc
 
 RUN pip install qiime
 
