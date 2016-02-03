@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libxrender1 \
     && apt-get clean
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen
+    locale-gen && fc-cache
 
 # Install Tini
 RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
@@ -75,7 +75,7 @@ RUN conda install --yes \
     jupyter \
     terminado \
     numpy \
-    matplotlib \
+    matplotlib=1.4.3 \
     pandas \
     scipy \
     && conda clean -yt
