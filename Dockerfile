@@ -4,7 +4,7 @@
 # Changes distributed under the MIT License.
 FROM debian:jessie
 
-MAINTAINER Jupyter Project <jupyter@googlegroups.com>
+MAINTAINER Christian Diener <mail@cdiener.com>
 
 USER root
 
@@ -12,25 +12,16 @@ USER root
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     git \
-    vim \
     wget \
     build-essential \
     python-dev \
     ca-certificates \
     bzip2 \
     unzip \
-    libsm6 \
-    pandoc \
-    texlive-latex-base \
-    texlive-latex-extra \
-    texlive-fonts-extra \
-    texlive-fonts-recommended \
-    texlive-generic-recommended \
     sudo \
     locales \
     libatlas3-base \
     libfreetype6-dev \
-    libxrender1 \
     && apt-get clean
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
