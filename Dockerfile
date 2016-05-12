@@ -65,8 +65,7 @@ RUN conda install -yq -c bioconda \
     nomkl \
     pandas \
     scipy \
-    qiime \
-    && conda clean -ty
+    && conda clean -ty && pip install qiime
 
 
 RUN mkdir -p $HOME/.config/matplotlib \
