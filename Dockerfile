@@ -90,7 +90,8 @@ CMD ["start-notebook.sh"]
 ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/minimal-notebook/start-notebook.sh /usr/local/bin/
 RUN chmod a+rx /usr/local/bin/start-notebook.sh
 ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/minimal-notebook/jupyter_notebook_config.py /home/$NB_USER/.jupyter/
-RUN chown -R $NB_USER:users /home/$NB_USER/.jupyter
+RUN chown -R $NB_USER:users /home/$NB_USER/.jupyter \
+    && chown -R $NB_USER:users /home/$NB_USER/work/examples
 
 # Switch back to docker to avoid accidental container runs as root
 USER docker
