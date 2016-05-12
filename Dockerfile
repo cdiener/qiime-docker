@@ -70,7 +70,10 @@ RUN conda install -yq -c bioconda \
 
 
 RUN mkdir -p $HOME/.config/matplotlib \
-    && echo "backend: agg" > /home/$NB_USER/.config/matplotlib/matplotlibrc
+    && echo "backend: agg" > /home/$NB_USER/.config/matplotlib/matplotlibrc \
+    && mkdir /home/$NB_USER/work/examples
+
+ADD https://raw.githubusercontent.com/biocore/qiime/1.9.1/examples/ipynb/illumina_overview_tutorial.ipynb /home/$NB_USER/work/examples
 
 USER root
 
