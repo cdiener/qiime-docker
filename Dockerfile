@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libopenblas-base \
     libzmq3-dev \
     libssl-dev \
-    libcurl4-openssl-dev \
     libxml2-dev \
+    && apt-get install -yq --no-install-recommends -t unstable libcurl4-openssl-dev \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
