@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-# Modified by Christian Diener 
+# Modified by Christian Diener
 # Changes distributed under the MIT License.
 FROM debian:jessie
 
@@ -62,7 +62,7 @@ RUN cd /tmp && \
     $CONDA_DIR/bin/conda install --yes conda
 
 # Install Jupyter notebook as jovyan
-RUN conda install --yes \
+RUN conda install --yes --quiet \
     jupyter \
     terminado \
     numpy \
@@ -86,9 +86,9 @@ ENTRYPOINT ["tini", "--"]
 CMD ["start-notebook.sh"]
 
 # Add local files as late as possible to avoid cache busting
-ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/minimal-notebook/start-notebook.sh /usr/local/bin/
+ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/base-notebook/start-notebook.sh /usr/local/bin/
 RUN chmod a+rx /usr/local/bin/start-notebook.sh
-ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/minimal-notebook/jupyter_notebook_config.py /home/$NB_USER/.jupyter/
+ADD https://raw.githubusercontent.com/jupyter/docker-stacks/master/base-notebook/jupyter_notebook_config.py /home/$NB_USER/.jupyter/
 RUN chown -R $NB_USER:users /home/$NB_USER/.jupyter
 
 # Switch back to jovyan to avoid accidental container runs as root
