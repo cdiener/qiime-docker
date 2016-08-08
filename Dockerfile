@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # Install Tini
-RUN wget --quiet https://github.com/krallin/tini/releases/download/latest/tini && \
+RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.9.0/tini && \
     mv tini /usr/local/bin/tini && \
     chmod +x /usr/local/bin/tini
 
@@ -57,7 +57,7 @@ RUN cd /tmp && \
     $CONDA_DIR/bin/conda install -yq conda && conda update -yq --all
 
 # Install Jupyter notebook as docker
-RUN conda install -yq -c bioconda \
+RUN conda install --yes --quiet \
     jupyter \
     terminado \
     numpy \
