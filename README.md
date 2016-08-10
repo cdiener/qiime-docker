@@ -1,3 +1,5 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/cdiener/qiime-docker.svg?maxAge=2592000)](https://hub.docker.com/r/cdiener/qiime-docker/)
+
 # qiime-docker
 
 Docker image for our Qiime pipeline. 
